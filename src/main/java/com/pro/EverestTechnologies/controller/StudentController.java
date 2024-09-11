@@ -3,9 +3,11 @@ package com.pro.EverestTechnologies.controller;
 import com.pro.EverestTechnologies.dto.ResponseMessage;
 import com.pro.EverestTechnologies.model.Student;
 import com.pro.EverestTechnologies.service.StudentService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +19,11 @@ public class StudentController {
 
     @Autowired
     private StudentService studentService;
+
+    @GetMapping("/csrf-token")
+    public CsrfToken getcsrfToken(HttpServletRequest request) {
+        return (CsrfToken) request.getAttribute("_csrf");
+    }
 
     @PostMapping
     public ResponseEntity<ResponseMessage> saveStudent(@RequestBody Student student) {
