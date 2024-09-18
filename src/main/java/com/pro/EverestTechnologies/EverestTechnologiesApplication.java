@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.info.License;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
 @SpringBootApplication
 @OpenAPIDefinition(
 		info = @Info(
@@ -18,6 +19,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 				license = @License(name = "API License", url = "https://www.everesttechnologies.com/license")
 		)
 )
+
+
 public class EverestTechnologiesApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(EverestTechnologiesApplication.class, args);
